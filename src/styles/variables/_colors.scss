@@ -1,14 +1,29 @@
 // Accent colors
-$primary: #1db954;
+$primary: #b0ca49;
 $secondary: #191414;
 $tertiary: #282828;
-$success: #27ae60;
-$warning: #f1c40f;
-$danger: #e74c3c;
+$success-bg: #1ba672;
+$success-text: #1b2028;
+$warning-bg: #d07d00;
+$warning-text: #fff0cd;
+$error-bg: #e53554;
+$error-text: #731a29;
+$info-bg: #6541e4;
+$info-text: #261b4c;
 
 // Text
-$primary-text: #fff;
+$text-darkest: #ededed;
+$text-dark: #c6c7c8;
+$text-medium: #a4a5a7;
+$text-low: #828387;
 $text-muted: #b3b3b3;
 
 // Background
-$background-primary: #191919;
+$bg-primary: #02060c;
+$bg-secondary: #121212;
+$bg-overlay: #171a20;
+$bg-overlay-dark: #0c1016;
+
+// Border
+$border-primary: '#c6c7c8';
+$border-secondary: '#3d4045';
