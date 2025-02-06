@@ -11,7 +11,9 @@
     "build": "tsc -b && vite build",
     "lint": "tsc --noEmit && eslint \"src/**/*.{js,jsx,ts,tsx,css,md}\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -26,8 +28,16 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.4",
     "@commitlint/config-conventional": "^19.7.1",
     "@eslint/js": "^9.17.0",
+    "@storybook/addon-essentials": "^8.5.3",
+    "@storybook/addon-interactions": "^8.5.3",
+    "@storybook/addon-onboarding": "^8.5.3",
+    "@storybook/blocks": "^8.5.3",
+    "@storybook/react": "^8.5.3",
+    "@storybook/react-vite": "^8.5.3",
+    "@storybook/test": "^8.5.3",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@typescript-eslint/eslint-plugin": "^8.23.0",
@@ -41,13 +51,20 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.16",
+    "eslint-plugin-storybook": "^0.11.2",
     "globals": "^15.14.0",
     "husky": "^8.0.0",
     "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
     "sass": "^1.83.4",
+    "storybook": "^8.5.3",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
     "vite": "^6.0.5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }

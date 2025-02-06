@@ -6,6 +6,7 @@ import eslintPluginPrettier from 'eslint-plugin-prettier';
 import importPlugin from 'eslint-plugin-import';
 import tseslint from 'typescript-eslint';
 import react from 'eslint-plugin-react';
+import storybook from 'eslint-plugin-storybook';
 
 export default tseslint.config(
   {
@@ -23,10 +24,15 @@ export default tseslint.config(
       '.github/',
       '*.json',
       '*.config.js',
+      '.storybook/',
     ],
   },
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommendedTypeChecked],
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommendedTypeChecked,
+      ...storybook.configs['flat/recommended'],
+    ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
@@ -59,6 +65,8 @@ export default tseslint.config(
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'storybook/default-exports': 'off',
+      'storybook/hierarchy-separator': 'error',
     },
   }
 );
