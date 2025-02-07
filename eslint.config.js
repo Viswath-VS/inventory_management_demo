@@ -7,6 +7,7 @@ import importPlugin from 'eslint-plugin-import';
 import tseslint from 'typescript-eslint';
 import react from 'eslint-plugin-react';
 import storybook from 'eslint-plugin-storybook';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 
 export default tseslint.config(
   {
@@ -32,6 +33,7 @@ export default tseslint.config(
       js.configs.recommended,
       ...tseslint.configs.recommendedTypeChecked,
       ...storybook.configs['flat/recommended'],
+      ...pluginQuery.configs['flat/recommended'],
     ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -58,6 +60,7 @@ export default tseslint.config(
       'react/prop-types': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-unused-vars': ['error'],
+      '@typescript-eslint/no-unsafe-assignment': 'off',
       'prettier/prettier': 'error',
       'import/no-duplicates': 'error',
       'no-console': ['error', { allow: ['warn', 'error'] }],
@@ -67,6 +70,7 @@ export default tseslint.config(
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'storybook/default-exports': 'off',
       'storybook/hierarchy-separator': 'error',
+      'storybook/prefer-pascal-case': 'warn',
     },
   }
 );
