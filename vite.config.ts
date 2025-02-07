@@ -17,4 +17,8 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  build: {
+    sourcemap: false,
+  },
+  base: '/',
 });
