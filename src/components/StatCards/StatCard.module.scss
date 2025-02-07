@@ -1,0 +1,39 @@
+.statCard {
+  display: flex;
+  align-items: flex-start;
+  background-color: $card-bg;
+  border-radius: 5px;
+  color: $text-darkest;
+  gap: 20px;
+  min-height: calc(#{$card-height}px);
+  max-width: calc(#{$card-width}px);
+  padding: calc(#{$card-padding}px);
+
+  &:hover {
+    background-color: $card-bg-hover;
+  }
+}
+
+.icon {
+  font-size: 24px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label {
+  font-size: $font-size-primary;
+  color: $text-medium;
+}
+
+.value {
+  font-size: $font-size-large;
+  font-weight: bold;
+}
