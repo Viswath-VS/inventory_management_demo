@@ -1,0 +1,29 @@
+/* TextField.module.scss */
+
+.textField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: white;
+}
+
+.label {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-size: 16px;
+  color: white;
+  outline: none;
+  transition: border 0.2s ease;
+
+  &:focus {
+    border-color: #007bff;
+  }
+}
