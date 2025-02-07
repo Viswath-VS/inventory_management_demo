@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  position: relative;
+  align-items: center;
+  background-color: $bg-primary;
+  height: calc(#{$nav-height}px);
+  padding: calc(#{$nav-padding}px);
+  gap: 20px;
+  .navLogo {
+    margin-right: auto;
+    font-size: large;
+  }
+
+  .navToggle {
+    display: flex;
+    padding: 0 10px;
+    gap: 10px;
+  }
+  .navLogout {
+    font-size: large;
+  }
+}
