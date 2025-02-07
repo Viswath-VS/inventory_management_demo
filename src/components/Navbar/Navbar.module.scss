@@ -4,8 +4,8 @@
   align-items: center;
   background-color: $bg-primary;
   height: calc(#{$nav-height}px);
-  padding: calc(#{$nav-padding}px);
   gap: 20px;
+  width: 100%;
   .navLogo {
     margin-right: auto;
     font-size: large;
