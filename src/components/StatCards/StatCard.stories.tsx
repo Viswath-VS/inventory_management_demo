@@ -9,6 +9,14 @@ type StoryProps = ComponentProps<typeof StatCard>;
 const meta: Meta<StoryProps> = {
   component: StatCard,
   title: 'Components/StatCard',
+  argTypes: {
+    label: {
+      control: { type: 'text' },
+    },
+    value: {
+      control: { type: 'text' },
+    },
+  },
 };
 const Template = ({ icon, label, value }: StatCardProps) => (
   <StatCard label={label} value={value} icon={icon} />
