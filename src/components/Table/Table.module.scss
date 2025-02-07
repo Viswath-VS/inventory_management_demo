@@ -1,0 +1,50 @@
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  margin: 16px 0;
+  background-color: $bg-primary;
+  border-radius: 5px;
+  border: 1px solid $border-secondary;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: $bg-secondary;
+  // color: $text-dark;
+}
+
+.table th,
+.table td {
+  padding: 14px;
+  text-align: left;
+}
+
+.table th {
+  background-color: $bg-secondary;
+  text-transform: uppercase;
+  color: $primary;
+  border: 1px solid $border-secondary;
+}
+
+tr {
+  &:hover {
+    background-color: #333;
+  }
+}
+
+.disabledRow {
+  opacity: 0.6;
+}
+
+.actionCell {
+  display: flex;
+  gap: 8px;
+}
+
+.actionButton {
+  background: transparent;
+  &.disabled {
+    cursor: not-allowed;
+  }
+}
