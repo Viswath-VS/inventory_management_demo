@@ -1,11 +1,12 @@
-// import { useState } from "react";
-
-function App() {
+import { Navbar } from '@/components';
+import { Home } from './pages';
+const App = () => {
   return (
-    <>
-      <div>Hello World!</div>
-    </>
+    <div className="appContainer">
+      <Navbar />
+      <Home />
+    </div>
   );
-}
+};
 
 export default App;
