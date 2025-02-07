@@ -1,0 +1,57 @@
+.toggle-switch {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__checkbox {
+    display: none;
+    &:checked + .toggle-switch__label .toggle-switch__inner {
+      background-color: $primary;
+    }
+
+    &:checked + .toggle-switch__label .toggle-switch__switch {
+      left: calc(100% - 18px);
+    }
+
+    &:disabled + .toggle-switch__label {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  &__label {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin: 0;
+  }
+
+  &__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 20px;
+    transition: background-color 0.2s ease;
+  }
+
+  &__switch {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: left 0.2s ease;
+  }
+
+  &__text {
+    margin-left: 8px;
+    font-size: 14px;
+    user-select: none;
+  }
+}
