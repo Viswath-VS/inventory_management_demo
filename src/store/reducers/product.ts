@@ -56,26 +56,27 @@ export default productsSlice.reducer;
 export const selectProducts = (state: RootState) => state.products.products;
 
 // Total number of products.
-export const selectTotalProducts = createSelector(selectProducts, (products) => products.length);
+export const selectTotalProducts = createSelector(
+  selectProducts,
+  (products) => products.filter((product) => !product.disabled).length
+);
 
 // Total value of all products.
 export const selectTotalValue = createSelector(selectProducts, (products) =>
-  products.reduce((sum, product) => sum + product.value, 0)
+  products.filter((product) => !product.disabled).reduce((sum, product) => sum + product.value, 0)
 );
 
 // Out-of-stock count
 export const selectOutOfStock = createSelector(
   selectProducts,
-  (products) => products.filter((product) => product.quantity <= 0).length
+  (products) =>
+    products.filter((product) => !product.disabled).filter((product) => product.quantity <= 0)
+      .length
 );
 
-// Total value per category.
-export const selectTotalCategoryValue = createSelector(selectProducts, (products) => {
-  return products.reduce<Record<string, number>>((acc, product) => {
-    if (!acc[product.category]) {
-      acc[product.category] = 0;
-    }
-    acc[product.category] += product.value;
-    return acc;
-  }, {});
-});
+// Total categories
+export const selectTotalCategories = createSelector(
+  selectProducts,
+  (products) =>
+    new Set(products.filter((product) => !product.disabled).map((product) => product.category)).size
+);
