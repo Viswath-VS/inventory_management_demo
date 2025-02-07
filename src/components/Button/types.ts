@@ -6,5 +6,5 @@ export type ButtonProps = PropsWithChildren<{
   onClick: () => void;
   size: 'sm' | 'md' | 'lg';
   variant: ButtonVariant;
-  disabled: boolean;
+  disabled?: boolean;
 }>;

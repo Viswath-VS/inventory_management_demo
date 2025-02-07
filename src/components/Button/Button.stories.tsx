@@ -37,4 +37,22 @@ export const Primary: Story = {
   render: (args) => <Button {...args}>Primary</Button>,
 };
 
+export const Secondary: Story = {
+  args: {
+    variant: 'outlined',
+    size: 'md',
+    disabled: false,
+  },
+  render: (args) => <Button {...args}>Secondary</Button>,
+};
+
+export const Text: Story = {
+  args: {
+    variant: 'text',
+    size: 'md',
+    disabled: false,
+  },
+  render: (args) => <Button {...args}>Text Button</Button>,
+};
+
 export default meta;
