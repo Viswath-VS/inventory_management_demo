@@ -1,13 +1,6 @@
-import { createSlice, createAsyncThunk, PayloadAction, createSelector } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
 import { RootState } from '../store';
-import { baseUrl } from '@/config/base';
-export type ApiResponse = {
-  name: string;
-  category: string;
-  value: string;
-  quantity: number;
-  price: string;
-};
+
 export type Product = {
   id: number;
   name: string;
@@ -20,36 +13,20 @@ export type Product = {
 
 interface ProductsState {
   products: Product[];
-  status: 'idle' | 'loading' | 'failed';
 }
 
 const initialState: ProductsState = {
   products: [],
-  status: 'idle',
 };
-
-/**
- * Using Async thunk to fetch products from the API.
- */
-export const fetchProducts = createAsyncThunk<Product[]>('products/fetchProducts', async () => {
-  const response = await fetch(baseUrl + '/inventory');
-  const data: ApiResponse[] = await response.json();
-
-  return data.map((item, key) => ({
-    id: key,
-    name: item.name,
-    category: item.category,
-    value: parseFloat(item.value.replace('$', '')),
-    quantity: item.quantity,
-    price: parseFloat(item.price.replace('$', '')),
-    disabled: false,
-  }));
-});
 
 const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
+    setProducts: (state, action: PayloadAction<Product[]>) => {
+      state.products = action.payload;
+    },
+
     editProduct: (state, action: PayloadAction<Product>) => {
       const index = state.products.findIndex((p) => p.id === action.payload.id);
       if (index !== -1) {
@@ -66,22 +43,10 @@ const productsSlice = createSlice({
       state.products = state.products.filter((p) => p.id !== action.payload);
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(fetchProducts.pending, (state) => {
-      state.status = 'loading';
-    });
-    builder.addCase(fetchProducts.fulfilled, (state, action: PayloadAction<Product[]>) => {
-      state.status = 'idle';
-      state.products = action.payload;
-    });
-    builder.addCase(fetchProducts.rejected, (state) => {
-      state.status = 'failed';
-    });
-  },
 });
 
 // Export actions for use in your components.
-export const { editProduct, toggleDisable, deleteProduct } = productsSlice.actions;
+export const { editProduct, toggleDisable, deleteProduct, setProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;
 
