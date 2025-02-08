@@ -45,7 +45,6 @@ const productsSlice = createSlice({
   },
 });
 
-// Export actions for use in your components.
 export const { editProduct, toggleDisable, deleteProduct, setProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;

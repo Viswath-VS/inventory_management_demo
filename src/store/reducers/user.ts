@@ -20,6 +20,7 @@ const hydrateInitialState = (): UserState => {
     return initialState;
   }
 };
+
 const userSlice = createSlice({
   name: 'user',
   initialState: hydrateInitialState(),

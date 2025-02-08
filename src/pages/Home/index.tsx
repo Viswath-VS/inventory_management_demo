@@ -86,7 +86,7 @@ export const Home = () => {
       <Table
         headers={['name', 'category', 'value', 'quantity', 'price']}
         data={products}
-        getRowId={(row) => row.id} // using name as unique id
+        getRowId={(row) => row.id}
         isRowDisabled={(row) => row.disabled ?? false}
         onEdit={handleEdit}
         onToggleDisable={handleToggleDisable}
