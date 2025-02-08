@@ -1,13 +1,14 @@
-import { Navbar } from '@/components';
-import { Home as Dash } from './pages';
-import { memo } from 'react';
+import { Loader, Navbar } from '@/components';
+import React, { Suspense } from 'react';
+const Home = React.lazy(() => import('@/pages/Home'));
 
-const Home = memo(Dash);
 const App = () => {
   return (
     <div className="appContainer">
       <Navbar title={'Inventory Management'} />
-      <Home />
+      <Suspense fallback={<Loader />}>
+        <Home />
+      </Suspense>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './StatCard.module.scss';
 import { StatCardProps } from './types';
 
@@ -14,4 +14,4 @@ const StatCard: React.FC<StatCardProps> = ({ icon, label, value }) => {
   );
 };
 
-export default StatCard;
+export default memo(StatCard);

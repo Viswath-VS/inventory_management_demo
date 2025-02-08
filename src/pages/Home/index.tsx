@@ -1,7 +1,7 @@
 import { DataTable as Table, Modal, Loader, Error } from '@/components';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '@/store/store';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchProducts } from '@/services/dataFetch';
 import {
@@ -15,7 +15,7 @@ import { HomeStatCards } from './HomeStatCards';
 import styles from './Home.module.scss';
 import TextField from '@/components/TextField';
 
-export const Home = () => {
+const Home = () => {
   const products = useSelector((state: RootState) => state.products.products);
   const isAdmin = useSelector((state: RootState) => state.user.admin);
   const dispatch = useDispatch<AppDispatch>();
@@ -139,3 +139,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default memo(Home);
