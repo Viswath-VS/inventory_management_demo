@@ -6,10 +6,13 @@
 - **TypeScript** for type safety
 - **SCSS** for styling
 - **ESLint** for code linting
+- **Prettier** for code formatting
+- **Husky** for Git hooks
+- **Storybook** for UI component development and testing
 
 ## Features
 
-- Add, update, and delete inventory items
+- Edit, update, and delete inventory items
 - Toggle between User and Admin Mode
 
 ## Installation
