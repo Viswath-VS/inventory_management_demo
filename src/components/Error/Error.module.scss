@@ -1,0 +1,18 @@
+.errorContainer {
+  background-color: $bg-secondary;
+  color: $error-text;
+  padding: calc(#{$card-padding}px);
+  border-radius: calc(#{$border-radius}px);
+  text-align: center;
+  margin: 16px;
+}
+
+.errorTitle {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.errorMessage {
+  margin: 8px 0 0;
+  font-size: 1rem;
+}

@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Checkbox from '.';
+import ToggleSwitch from '.';
 import { ComponentProps } from 'react';
 
-type StoryProps = ComponentProps<typeof Checkbox>;
+type StoryProps = ComponentProps<typeof ToggleSwitch>;
 type Story = StoryObj<StoryProps>;
 
 const meta: Meta<StoryProps> = {
   title: 'Components/ToggleSwitch',
-  component: Checkbox,
+  component: ToggleSwitch,
   parameters: {
     layout: 'centered',
   },
@@ -19,23 +19,23 @@ const meta: Meta<StoryProps> = {
 
 export const Default: Story = {
   args: {
-    id: 'checkbox',
+    id: 'ToggleSwitch',
   },
-  render: (args) => <Checkbox {...args} />,
+  render: (args) => <ToggleSwitch {...args} />,
 };
 export const WithLabel: Story = {
   args: {
-    id: 'checkbox',
+    id: 'ToggleSwitch',
     label: 'Label',
   },
-  render: (args) => <Checkbox {...args} />,
+  render: (args) => <ToggleSwitch {...args} />,
 };
 export const Disabled: Story = {
   args: {
-    id: 'checkbox',
+    id: 'ToggleSwitch',
     disabled: true,
   },
-  render: (args) => <Checkbox {...args} />,
+  render: (args) => <ToggleSwitch {...args} />,
 };
 
 export default meta;

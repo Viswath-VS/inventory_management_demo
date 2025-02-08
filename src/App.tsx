@@ -1,9 +1,12 @@
 import { Navbar } from '@/components';
-import { Home } from './pages';
+import { Home as Dash } from './pages';
+import { memo } from 'react';
+
+const Home = memo(Dash);
 const App = () => {
   return (
     <div className="appContainer">
-      <Navbar />
+      <Navbar title={'Inventory Management'} />
       <Home />
     </div>
   );

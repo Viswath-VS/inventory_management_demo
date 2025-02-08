@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from './index';
+import Button from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
@@ -25,7 +25,6 @@ const meta: Meta<StoryProps> = {
     layout: 'centered',
   },
 };
-
 type Story = StoryObj<StoryProps>;
 
 export const Primary: Story = {

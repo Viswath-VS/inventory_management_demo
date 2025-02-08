@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './ToggleSwitch.module.scss';
 import { ToggleSwitchProps } from './types';
 
@@ -23,4 +23,4 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ label, id, ...inputProps })
   );
 };
 
-export default ToggleSwitch;
+export default memo(ToggleSwitch);

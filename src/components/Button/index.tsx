@@ -1,6 +1,7 @@
 import { ButtonProps } from './types';
 import styles from './Button.module.scss';
-export const Button = ({ children, onClick, disabled = false, size, variant }: ButtonProps) => {
+import { memo } from 'react';
+const Button = ({ children, onClick, disabled = false, size, variant }: ButtonProps) => {
   return (
     <button
       disabled={disabled}
@@ -11,3 +12,5 @@ export const Button = ({ children, onClick, disabled = false, size, variant }: B
     </button>
   );
 };
+
+export default memo(Button);

@@ -3,7 +3,7 @@ import styles from './Modal.module.scss';
 import { ModalProps } from './types';
 import { IconButton } from '@mui/material';
 import { Close } from '@mui/icons-material';
-import { Button } from '../Button';
+import Button from '../Button';
 
 const Modal: React.FC<ModalProps> = ({ title, subtitle, children, onClose, onCancel, onSave }) => {
   return (

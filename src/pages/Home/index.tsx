@@ -1,4 +1,4 @@
-import { DataTable as Table, Modal } from '@/components';
+import { DataTable as Table, Modal, Loader, Error } from '@/components';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '@/store/store';
 import { useEffect, useState } from 'react';
@@ -48,7 +48,11 @@ export const Home = () => {
   };
 
   const handleSaveEdit = () => {
-    dispatch(editProduct(editingProduct as Product));
+    if (!editingProduct?.category) {
+      alert('Category is required');
+      return;
+    }
+    dispatch(editProduct(editingProduct));
     setIsModalOpen(false);
     setEditingProduct(null);
     setIsModalOpen(false);
@@ -78,8 +82,8 @@ export const Home = () => {
 
   const handleClose = () => setIsModalOpen(false);
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading products.</div>;
+  if (isLoading) return <Loader />;
+  if (error) return <Error message="An error occurred. Please try again later." />;
   return (
     <main className={styles['homeContainer']}>
       <HomeStatCards />
