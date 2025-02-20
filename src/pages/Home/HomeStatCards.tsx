@@ -5,10 +5,10 @@ import CategoryIcon from '@mui/icons-material/Category';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import styles from './Home.module.scss';
 import {
-  selectTotalProducts,
-  selectTotalCategories,
-  selectTotalValue,
   selectOutOfStock,
+  selectTotalCategories,
+  selectTotalProducts,
+  selectTotalValue,
 } from '@/store/reducers/product';
 import { useSelector } from 'react-redux';
 

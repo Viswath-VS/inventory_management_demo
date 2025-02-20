@@ -4,7 +4,7 @@ import ToggleSwitch from '../ToggleSwitch';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { IconButton } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '@/store/store';
+import { AppDispatch, RootState } from '@/store/store';
 import { setAdmin } from '@/store/reducers/user';
 import { NavbarProps } from './types';
 
