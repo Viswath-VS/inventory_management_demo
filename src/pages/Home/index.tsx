@@ -1,6 +1,6 @@
-import { DataTable as Table, Modal, Loader, Error } from '@/components';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '@/store/store';
+import { Error, Loader, Modal, DataTable as Table } from '@/components';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '@/store/store';
 import { memo, useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchProducts } from '@/services/dataFetch';
@@ -14,13 +14,18 @@ import {
 import { HomeStatCards } from './HomeStatCards';
 import styles from './Home.module.scss';
 import TextField from '@/components/TextField';
-
+import { useDebounce, useSearch } from '@/hooks';
+const Card = memo(HomeStatCards);
 const Home = () => {
   const products = useSelector((state: RootState) => state.products.products);
   const isAdmin = useSelector((state: RootState) => state.user.admin);
   const dispatch = useDispatch<AppDispatch>();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [search, setSearch] = useState<string>('');
+
+  const searchQuery = useDebounce(search, 300);
+  const filteredData = useSearch({ data: products, searchQuery });
 
   const { data, error, isLoading } = useQuery<Product[]>({
     queryKey: ['products'],
@@ -81,15 +86,24 @@ const Home = () => {
   };
 
   const handleClose = () => setIsModalOpen(false);
+  const handleChange = (e: string) => {
+    setSearch(e);
+  };
 
   if (isLoading) return <Loader />;
   if (error) return <Error message="An error occurred. Please try again later." />;
   return (
     <main className={styles['homeContainer']}>
-      <HomeStatCards />
+      <Card />
+      <TextField
+        label="Search"
+        placeholder="Search for items..."
+        value={search}
+        onChange={(e) => handleChange(e.target.value)}
+      />
       <Table
         headers={['name', 'category', 'value', 'quantity', 'price']}
-        data={products}
+        data={filteredData}
         getRowId={(row) => row.id}
         isRowDisabled={(row) => row.disabled ?? false}
         onEdit={handleEdit}
